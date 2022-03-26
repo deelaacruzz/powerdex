@@ -1,9 +1,10 @@
-package com.example.powerdex
+package com.example.powerdex.splash
 
 import android.annotation.SuppressLint
 import android.os.Handler
 import android.os.Looper
 import androidx.navigation.fragment.findNavController
+import com.example.powerdex.R
 import com.example.powerdex.base.BaseFragment
 import com.example.powerdex.databinding.ViewSplashBinding
 
@@ -12,7 +13,6 @@ import com.example.powerdex.databinding.ViewSplashBinding
 class SplashFragment : BaseFragment<ViewSplashBinding>(R.layout.view_splash) {
 
     private lateinit var binding: ViewSplashBinding
-
     override fun ViewSplashBinding.initialize() {
         binding = this
 
