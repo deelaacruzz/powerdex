@@ -3,11 +3,13 @@ package com.example.powerdex.menu
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.powerdex.R
 import com.example.powerdex.adapter.MenuHeroAdapter
 import com.example.powerdex.base.BaseFragment
 import com.example.powerdex.base.DroidApp
+import com.example.powerdex.data.model.InfoSuperHero
 import com.example.powerdex.data.repository.SuperHeroRepository
 import com.example.powerdex.databinding.ViewMenuFragmentBinding
 
@@ -46,15 +48,14 @@ class MenuFragment : BaseFragment<ViewMenuFragmentBinding>(R.layout.view_menu_fr
 
         menuViewModel.getListHero().observe(this, Observer { arrayHeroes ->
             adapter = MenuHeroAdapter(arrayHeroes) {
-                val bundleIndicador = Bundle()
-                println("click super hero ${it.name}")
+                InfoSuperHero.getInstance().setSuperHero(it)
+                findNavController().navigate(R.id.action_menuFragment_to_infoHeroFragment)
             }
 
             binding.rvListHero.layoutManager = LinearLayoutManager(activity)
             binding.rvListHero.adapter = adapter
             adapter.notifyDataSetChanged()
         })
-
 
     }
 

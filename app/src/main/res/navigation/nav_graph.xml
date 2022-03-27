@@ -20,7 +20,17 @@
         android:name="com.example.powerdex.menu.MenuFragment"
         android:label="MenuFragment"
         tools:layout="@layout/view_menu_fragment">
-
+        <action
+            android:id="@+id/action_menuFragment_to_infoHeroFragment"
+            app:destination="@id/infoHeroFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/infoHeroFragment"
+        android:name="com.example.powerdex.menu.infoHeroe.InfoHeroFragment"
+        android:label="MenuFragment"
+        tools:layout="@layout/view_info_hero_fragment">
+    </fragment>
+
+
 
 </navigation>

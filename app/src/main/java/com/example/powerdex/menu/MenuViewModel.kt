@@ -19,16 +19,6 @@ class MenuViewModel(
 
     private var loadHero = 0
     private var maxHeroLoad = 10
-    fun getInfoHero(id: String) {
-        viewModelScope.launch {
-
-            val superHero = withContext(Dispatchers.IO) {
-                superHeroRepository.getSuperHero(id).execute()
-            }
-
-
-        }
-    }
 
     fun getListHero(): MutableLiveData<ArrayList<SuperHeroModel>> = listHero
 
@@ -44,11 +34,11 @@ class MenuViewModel(
                 listHero.value?.add(superHero)
             }
 
-            if (loadHero != maxHeroLoad) {
+            if (loadHero <= maxHeroLoad) {
                 getDataHero()
             } else {
                 listHero.postValue(listHero.value)
-                maxHeroLoad = +10
+                maxHeroLoad = maxHeroLoad + 10
             }
         }
 

@@ -1,6 +1,6 @@
 package com.example.powerdex.data.model
 
-class SuperHeroModel {
+open class SuperHeroModel {
 
     var response = ""
     var id = ""

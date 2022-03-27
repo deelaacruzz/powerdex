@@ -29,14 +29,8 @@ class MenuHeroAdapter(
         fun bind(data: SuperHeroModel) {
             itemRoot.tvNombre.text = data.name
             Glide.with(itemRoot.root.context).load(data.image.url).into(itemRoot.ivImage)
-
-
-
         }
     }
-
-
-
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
