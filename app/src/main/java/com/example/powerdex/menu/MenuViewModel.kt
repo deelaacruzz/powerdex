@@ -24,7 +24,7 @@ class MenuViewModel(
 
     fun getDataHero() {
         loadHero++
-
+        menuInterface.showProgress()
         viewModelScope.launch {
             val responseHero = withContext(Dispatchers.IO) {
                 superHeroRepository.getSuperHero(loadHero.toString()).execute()
@@ -39,6 +39,7 @@ class MenuViewModel(
             } else {
                 listHero.postValue(listHero.value)
                 maxHeroLoad = maxHeroLoad + 10
+                menuInterface.hideProgress()
             }
         }
 
@@ -46,5 +47,8 @@ class MenuViewModel(
     }
 
 
-    interface MenuData {}
+    interface MenuData {
+       fun showProgress()
+       fun hideProgress()
+    }
 }

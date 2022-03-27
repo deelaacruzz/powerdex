@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.powerdex.data.model.InfoSuperHero
 import com.example.powerdex.data.model.SuperHeroModel
 import com.example.powerdex.databinding.ItemMenuHeroBinding
 
@@ -44,6 +45,7 @@ class MenuHeroAdapter(
     override fun onBindViewHolder(holder: MenuHeroHolder, position: Int) {
         holder.bind(list[position])
         holder.itemView.setOnClickListener {
+            InfoSuperHero.getInstance().setSuperHero(list[position])
             listener(list[position])
         }
 

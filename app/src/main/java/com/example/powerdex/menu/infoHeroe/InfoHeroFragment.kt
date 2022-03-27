@@ -28,12 +28,12 @@ class InfoHeroFragment :
             binding.tvName.text = hero.name
             Glide.with(requireContext()).load(hero.image.url).into(binding.ivImage)
 
-            binding.pbIntelligence.progress = hero.powerstats.intelligence.toInt()
-            binding.pbStrength.progress = hero.powerstats.strength.toInt()
-            binding.pbSpeed.progress = hero.powerstats.speed.toInt()
-            binding.pbDurability.progress = hero.powerstats.durability.toInt()
-            binding.pbPower.progress = hero.powerstats.power.toInt()
-            binding.pbCombat.progress = hero.powerstats.combat.toInt()
+            binding.pbIntelligence.progress =   hero.powerstats.getIntelligence().toInt()
+            binding.pbStrength.progress = hero.powerstats.getStrength().toInt()
+            binding.pbSpeed.progress = hero.powerstats.getSpeed().toInt()
+            binding.pbDurability.progress = hero.powerstats.getDurability().toInt()
+            binding.pbPower.progress = hero.powerstats.getPower().toInt()
+            binding.pbCombat.progress = hero.powerstats.getCombat().toInt()
 
             binding.tvFullname.text = hero.biography.fullName
             binding.tvAlter.text = hero.biography.alterEgos
